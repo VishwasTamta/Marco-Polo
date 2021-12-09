@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import React,{ useState } from 'react'
 
 function App() {
+  const [isMarco, setMarco] = useState(false)
+
+  const clickhandler = () => {
+    if(!isMarco){
+      setMarco(true)
+    }else{
+      setMarco(false)
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 id="marco-polo">{isMarco ? 'Polo' : 'Marco'}</h1>
+      <button onClick={clickhandler} id="marco-polo-toggler">{isMarco ? 'Marco' : 'Polo'}</button>
     </div>
   );
 }
